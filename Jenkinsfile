@@ -3,10 +3,7 @@ pipeline {
     stages {
         stage('Building Image') {
             steps {
-                echo "Step 1: Buildng Image"
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-                echo 'node --version'
+                sh 'node --version'
                 //sh """docker build -t first:latest."""
             }
         }
