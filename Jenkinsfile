@@ -1,16 +1,17 @@
 pipeline {
-    agent any
+    agent { docker { image '17-alpine'}}
     stages {
         stage('Building Image') {
             steps {
                 echo "Step 1: Buildng Image"
-                sh """docker build -t first:latest."""
+                echo 'node --version'
+                //sh """docker build -t first:latest."""
             }
         }
-        stage('Ruuning Container') {
+        stage('Running Container') {
             steps {
                 echo "Step 2: Running Container"
-                sh """docker run -p 3030:3030 first:latest"""
+                //sh """docker run -p 3030:3030 first:latest"""
             }
         }
         stage('deploy') {
