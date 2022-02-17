@@ -1,6 +1,10 @@
 pipeline {
     agent { docker { image '17-alpine'}}
     stages {
+        stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('Building Image') {
             steps {
                 echo "Step 1: Buildng Image"
