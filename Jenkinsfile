@@ -1,10 +1,10 @@
 pipeline {
-    agent { docker {image 'node-alpine'}}
+    agent { dockerfile true}
     stages {
         stage('Building Image') {
             steps {
                 sh 'node --version'
-                //sh """docker build -t first:latest."""
+                sh """docker build -t first:latest."""
             }
         }
         stage('Running Container') {
