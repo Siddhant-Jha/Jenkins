@@ -1,5 +1,10 @@
 pipeline {
-    agent { dockerfile true}
+    //agent { dockerfile true}
+    agent any
+    environment{
+        dockerHome = tool 'myDocker'
+        PATH = "$dockerHome/bin:$PATH"
+    }
     stages {
         stage('Building Image') {
             steps {
