@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('Building Image') {
             steps {
-                //sh 'node --version'
-                sh """docker build -t first:latest."""
+                sh 'node --version'
+                //sh """docker build -t first:latest."""
             }
         }
         stage('Running Container') {
             steps {
                 echo "Step 2: Running Container"
-                sh """docker run -p 3030:3030 first:latest"""
+                //sh """docker run -p 3030:3030 first:latest"""
             }
         }
         stage('deploy') {
